@@ -3,8 +3,9 @@
   <form class="loginform" ng-submit="login()">
     <h1>Email:</h1> 
     <input type="text" ng-model="user.email">
-    <h1>Password:</h1> 
+    <h1>Password:</h1>
     <input type="password" ng-model="user.password">
+    <div class="error" ng-show="signinerror">Invalid Username and Password</div> 
     <input class="button signinbutton" type="submit" value="Sign in">
   </form>
 </div>

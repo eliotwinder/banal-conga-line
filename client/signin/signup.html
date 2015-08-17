@@ -4,13 +4,21 @@
   <form class="signupform" ng-submit="signup()">
     <h1>Name:</h1><br><input type="text" ng-model="user.username">
     <h1>Profile Picture:</h1><br><input type="text" ng-model="user.profilepic"><br>
-    <h1>Email:</h1><br><input type="text" ng-model="user.email"> <!-- TODO: check for e-mail format -->
-    <h1>Password:</h1><input type="password" ng-model="user.password"> <!-- or whatever firebase needs TODO: hide password while typing-->
+    <h1>Email:</h1><br><input type="text" ng-model="user.email">
+    <div class="error" ng-show="emailEmptyError">Please enter a valid email!</div>
+    <div class="error" ng-show="emailError"> That e-mail address is already in use!</div>
+    <br>
+    <h1>Password:</h1>
+    <br>
+    <input type="password" ng-model="user.password"> 
+    <div class="error" ng-show="passwordEmptyError">Please enter a password!</div>
+    <br>
     <h1>Location:</h1>
+    <br>
     <select class="selection" ng-model="user.location">
       <option ng-repeat="neighborhood in neighborhoods">{{ neighborhood }}</option>
     </select>
-
+    <br>
     <h1>Talents:</h1>
     <div class="talents" ng-repeat="talent in user.talents"> <!-- TODO: if you press enter, it submits the whole form but doesn't add the talent -->
       {{ talent.talent }}, {{ talent.level}}
