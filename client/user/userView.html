@@ -1,14 +1,15 @@
 <loggedin></loggedin>
 
 <div class="main" ng-init="init()">
-
+<table>
+  <td>
   <div class="leftcolumn">
 
     <div class="profileInfo">
       <img class="profilepic" ng-src="{{ user.profilepic }}" onerror="this.src = 'http://photos4.meetupstatic.com/photos/member/7/3/f/1/highres_9209681.jpeg'">
       <div class="username"> {{ user.username }} </div><br>
       <div class="location"> {{ user.location }} </div><br>
-      <div class="email"> <a ng-href="mailto:{{ user.email }}"> {{ user.email }} </div>
+      <div class="email"> <a ng-href="mailto:{{ user.email }}"> {{ user.email }} </a></div>
     </div>
 
     <div class="profileLinks">
@@ -19,8 +20,8 @@
     </div>
 
   </div>
-  
-
+  </td>
+  <td>
   <div class="rightcolumn">
 
     <div class="profileTalents">
@@ -74,5 +75,8 @@
     </div>
 
   </div>
+  </td>
+  </tr>
+  </table>
 
 </div>

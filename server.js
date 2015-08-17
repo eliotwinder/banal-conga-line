@@ -20,9 +20,7 @@ app.get('/api/user/:UID', function(req, res){
   // receive uid
   // return user object
   var UID = req.params.UID;
-  // console.log('------------->>>>>>',db.getUID);
   db.getUID(UID, function(userData){
-    // console.log("26", userData);
     res.end(JSON.stringify(userData));
   });
 });
@@ -70,7 +68,7 @@ app.post('/api/toggle', function(req, res) {
 app.post('/api/request', function(req, res){
   var reqObj = req.body;
   db.addRequest(reqObj, function(){
-    res.end(200);
+    res.end(302);
   });
 });
 
@@ -98,7 +96,8 @@ app.post('/api/event', function(req, res){
   // returns if success
   var eventObj = req.body;
   db.addEvent(eventObj, function(){
-    res.end(200);
+    console.log('eliot');
+    res.end('', 302);
   });
 });
 

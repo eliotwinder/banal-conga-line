@@ -79,7 +79,8 @@ body {
 /*************************************** MAIN ***************************************/
 
 .main {
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   padding: 2%;
   min-height: 100%;
   background: #D6D0CB;
@@ -446,3 +447,4 @@ td, th {
 .profileInfo {
     background-color: #F7F7F7;
 }
+

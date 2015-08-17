@@ -61,7 +61,6 @@ angular.module('app.user', [])
         
         for (var j = 0; j < $scope.events.length; j++){
           $scope.events[j].date = new Date($scope.events[j].date);
-          console.log($scope.events);
         }
       }).catch(function(err){ 
         console.log('error fetching requests', err);
