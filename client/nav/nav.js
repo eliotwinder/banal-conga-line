@@ -16,6 +16,8 @@ angular.module('app.nav',[])
   $scope.date = {};
 
   $scope.redirect = function(newpath){
+    $scope.showRequests = false;
+    $scope.showEvents = false;
     $location.path(newpath);
   };
 
