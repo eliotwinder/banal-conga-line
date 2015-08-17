@@ -9,7 +9,6 @@ angular.module('app.signin', ['app.services'])
 
   $scope.emailError = false;
   $scope.passwordEmptyError = false;
-  $scope.emailEmptyError
   
   $scope.user = {
     talents: [],
