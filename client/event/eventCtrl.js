@@ -1,16 +1,16 @@
 angular.module('app.event', [])
-.controller('EventController', ['$scope', '$http', 'HttpRequests', 'randomEvent', function($scope, $http, HttpRequests, randomEvent){
+.controller('EventController', ['$scope', '$http', 'HttpRequests', function($scope, $http, HttpRequests){
     $scope.search = {};
     $scope.events = [];
-
-    $scope.makeRandomEvent = function(){
-      HttpRequests.postEvent(randomEvent());
-    };
 
     $scope.getEvents = function(){
       HttpRequests.getEvents()
         .then(function(data){
           $scope.events = data.data;
+          for (var i = 0; i < $scope.events.length; i++) {
+            var date = new Date($scope.events[i].date);
+            $scope.events[i].date = (date.getMonth() + 1) + "-" + date.getDay() + "-" + date.getFullYear();
+          }
 
         });
     };

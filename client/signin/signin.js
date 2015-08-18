@@ -7,6 +7,8 @@ angular.module('app.signin', ['app.services'])
   $scope.talents = ['piano', 'guitar', 'bass', 'trombone', 'flute', 'violin', 'cello', 'voice', 'trumpet'];
   $scope.levels = [1,2,3,4,5,6,7,8,9,10];
 
+  $scope.emailError = false;
+  $scope.passwordEmptyError = false;
   
   $scope.user = {
     talents: [],
@@ -93,7 +95,7 @@ angular.module('app.signin', ['app.services'])
       $location.path('/user/'+ authData.uid); // /user/UID
     }).catch(function(error){
       console.error("Firebase login failed:",error);
-      $location.path('/login');
+      $scope.signinerror= true;
     });
   };
 
@@ -101,6 +103,15 @@ angular.module('app.signin', ['app.services'])
      $scope.user.talents = convertTalentsToObject();
      var email = $scope.user.email;
      var password = $scope.user.password;
+     console.log(email,password);
+     if(email === undefined) {
+      $scope.passwordError = true;
+      $scope.emailError = false;
+      return;
+     }
+     if(password === undefined) {
+
+     }
      Auth.signup(email, password)
      .then(function(userData){
        $scope.user.uid = userData.uid;
@@ -109,7 +120,6 @@ angular.module('app.signin', ['app.services'])
          $window.localStorage.setItem('uid', userData.uid);
          Auth.login(email, password)
           .then(function(){
-            console.log('-------------->', userData);
             $location.path('/user/'+ userData.uid);
           })
           .catch(function(){
@@ -122,6 +132,10 @@ angular.module('app.signin', ['app.services'])
      })
      .catch(function(error){
        console.log("Firebase signup failed:",error);
+       if(error.message.indexOf('email') > -1) {
+        $scope.emailError = true;
+        $scope.passwordError = false;
+       }
        $scope.user.talents = [];
      });
    };
@@ -129,7 +143,6 @@ angular.module('app.signin', ['app.services'])
 
   var convertTalentsToObject = function() {
     var converted = {};
-    console.log('before',$scope.user.talents);
     for (var i = 0; i < $scope.user.talents.length; i++){
       converted[$scope.user.talents[i].talent] = $scope.user.talents[i].level; 
     }

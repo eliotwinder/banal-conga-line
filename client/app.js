@@ -6,7 +6,6 @@ var app = angular.module('app', [
   'app.signin',
   'app.event',
   'ngRoute',
-  'app.randomEvent',
   'app.d3'
 ]);
 
