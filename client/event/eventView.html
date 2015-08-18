@@ -25,8 +25,8 @@
     </form>
 
     <div class="eventsWrapper" ng-filter="search" ng-model="events">
-      <div class="eventlist" ng-repeat="event in events | filter:{name:namefilter, neighborhood:neighborhoodfilter, organizer:organizerfilter, hashtags:hashtagfilter}">
-        <div class="eventDate"> {{ event.date }} </div>
+      <div class="eventlist" ng-repeat="event in events | filter:{name:namefilter, neighborhood:neighborhoodfilter, organizer:organizerfilter, hashtags:hashtagfilter} | orderBy: date">
+        <div class="eventDate"> {{ event.formatteddate }} </div>
         <div class="eventName"> {{ event.name }} </div>
         <div class="eventNeighborhood"> {{ event.neighborhood }} </div>
         <div class="eventOrganizer">
