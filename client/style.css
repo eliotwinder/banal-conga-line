@@ -88,7 +88,7 @@ body {
   max-width: 960px;
   min-width: 500px;
   display: block;
-  overflow: auto;
+  overflow-y: scroll;
 }
 
 
@@ -101,6 +101,7 @@ body {
   text-align: center;
   /*   display: block; */
   background: #44B3C2;
+  z-index: 100;
 }
 
 .headercompanyname {
@@ -218,6 +219,7 @@ input {
   border-radius: 8px;
   padding: 10px;
   position: relative;
+  margin-bottom: 25px;
 }
 
 .signupform input {
@@ -259,8 +261,8 @@ input {
 
 .links {
   margin-bottom: 20%;
-  text-align:left;
-  width: 20px;
+  text-align:center;
+  overflow:hidden;
 }
 
 
@@ -268,15 +270,27 @@ input {
 /*************************************** LOGIN ***************************************/
 
 .loginform {
-  margin-top: 20px;
+  position:relative;
+  margin-top: 60px;
   text-align: center;
   width: 50%;
   background-color: #F7F7F7;
   margin: 0 auto;
   padding: 10px 0;
   border-radius: 8px;
+  top: 60px;
 }
-
+.signupform {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    top: 60px;
+    text-align: center;
+    background-color: #F7F7F7;
+    border-radius: 8px;
+    padding: 10px;
+    position: relative;
+}
 .loginform input {
   width: 30%;
   display: block;
