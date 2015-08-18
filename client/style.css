@@ -88,6 +88,7 @@ body {
   max-width: 960px;
   min-width: 500px;
   display: block;
+  overflow: auto;
 }
 
 
@@ -111,6 +112,8 @@ body {
   color: #b8e2e8;
   font-weight: 400;
   font-size: 30px;
+  position: fixed;
+  margin-left: -20px;
 /*   padding: 3px 0 0 0; */
 }
 
@@ -445,6 +448,8 @@ td, th {
   font-weight: bold;
 }
 .profileInfo {
-    background-color: #F7F7F7;
+  background-color: #F7F7F7;
+}
+
 }
 
